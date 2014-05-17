@@ -31,6 +31,10 @@ set linebreak
 set autoindent
 set encoding=utf-8
 
+"SOURCE FILES
+source ~/.vim/startup/mapping.vim
+source ~/.vim/startup/airline.vim
+source ~/.vim/startup/auto-pairs.vim
 
 
 "USING MOUSE
@@ -84,9 +88,4 @@ set shiftwidth=5
 set expandtab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
 
-
-"SOURCE FILES
-source ~/.vim/startup/mapping.vim
-source ~/.vim/startup/airline.vim
-source ~/.vim/startup/auto-pairs.vim
 
