@@ -6,6 +6,17 @@ set modeline
 syntax on
 set number
 
+"backup
+set swapfile
+set dir=~/tmp
+
+
+"No backup
+"set nobackup       #no backup files
+"set nowritebackup  #only in case you don't want a backup file while editing
+"set noswapfile     #no swap files
+
+
 
 set backspace=2 " make backspace work like most other apps
 set backspace=indent,eol,start
