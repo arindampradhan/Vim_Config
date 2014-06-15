@@ -1,8 +1,8 @@
 execute pathogen#infect()
 runtime bundle/vim-pathogen/autoload/pathogen.vim
+set wmh=0
 
 
-set modeline
 syntax on
 set number
 
@@ -12,15 +12,19 @@ set dir=~/tmp
 
 
 "No backup
-"set nobackup       #no backup files
-"set nowritebackup  #only in case you don't want a backup file while editing
-"set noswapfile     #no swap files
+set nobackup      " #no backup files
+set nowritebackup  " #only in case you don't want a backup file while editing
+set noswapfile     " #no swap files
 
+
+
+nnoremap H :set cursorline! cursorcolumn!<CR>
+map  <F5> <Esc>:echo expand('%:p')<Return>
 
 
 set backspace=2 " make backspace work like most other apps
-set backspace=indent,eol,start
 set ttymouse=xterm2
+set backspace=indent,eol,start
 set history=100
 set wildignore=*.swp,*.bak,*pyc,*.class
 autocmd filetype html,xml set listchars-=tab:>.
@@ -28,15 +32,15 @@ autocmd filetype html,xml set listchars-=tab:>.
 
 autocmd!
 filetype off
-call pathogen#helptags()
 filetype plugin indent on
+call pathogen#helptags()
 
 
 set smartcase
 set ignorecase
 set nopaste
 set tabstop=3
-
+set magic "activate regex
 	
 set linebreak
 set autoindent
@@ -86,18 +90,26 @@ endif
 "display together the errors
 let g:syntastic_aggregate_errors = 1
 
-"Unite
-let g:unite_source_history_yank_enable=1
 
+"splits
+set splitbelow
+set splitright
+
+
+"
 set smartindent
 set tabstop=5
 set shiftwidth=5
 set expandtab
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
 
 "SOURCE FILES
 source ~/.vim/startup/mapping.vim
 source ~/.vim/startup/airline.vim
 source ~/.vim/startup/auto-pairs.vim
+source ~/.vim/startup/neocamp.vim
+
+
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 

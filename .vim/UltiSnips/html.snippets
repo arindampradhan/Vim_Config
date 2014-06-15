@@ -1,0 +1,9 @@
+snippet t "A simple html tag" p
+<${1:div}>
+
+</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet todo "This is a TODO reminder " b
+<!-- TODO: `echo $USER` ${1:task} `!v strftime("%c")` -->
+endsnippet
