@@ -40,6 +40,7 @@ set smartcase
 set ignorecase
 set nopaste
 set tabstop=3
+set softtabstop=3
 set magic "activate regex
 	
 set linebreak
