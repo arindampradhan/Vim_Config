@@ -6,7 +6,7 @@ let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_min_syntax_length = 2
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Enable heavy features.
@@ -51,14 +51,14 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
 
 " For cursor moving in insert mode(Not recommended)
-inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+inoremap <expr><tab>  neocomplcache#close_popup() . "\<Left>"
+inoremap <expr><tab> neocomplcache#close_popup() . "\<Right>"
 inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
 inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
 " Or set this.
-let g:neocomplcache_enable_cursor_hold_i = 1
+"let g:neocomplcache_enable_cursor_hold_i = 1
 " Or set this.
-let g:neocomplcache_enable_insert_char_pre = 1
+"let g:neocomplcache_enable_insert_char_pre = 1
 
 " AutoComplPop like behavior.
 let g:neocomplcache_enable_auto_select = 1
@@ -75,6 +75,15 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_disable_auto_complete = 1
+inoremap <expr><C-l> neocomplcache#complete_common_string()
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
+
+
+
+
 
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
